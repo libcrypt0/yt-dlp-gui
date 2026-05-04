@@ -6,6 +6,7 @@ import koKR from "./ko-KR.json";
 import esES from "./es-ES.json";
 import ruRU from "./ru-RU.json";
 import zhTW from "./zh-TW.json";
+import arEG from "./ar-EG.json"; // 1. استدعاء ملف اللغة العربية
 
 // ==================== 语言注册表（新增语言只改这里 + 创建翻译文件） ====================
 
@@ -22,6 +23,7 @@ export interface LocaleEntry {
 
 export const localeEntries: LocaleEntry[] = [
   { code: "en-US", flag: "🇺🇸", label: "English", match: (lang) => lang.startsWith("en") },
+  { code: "ar-EG", flag: "🇪🇬", label: "العربية", match: (lang) => lang.startsWith("ar") }, // 2. إضافة العربية وعلم مصر للقائمة
   { code: "zh-CN", flag: "🇨🇳", label: "简体中文", match: (lang) => lang === "zh-CN" || lang === "zh-SG" || lang === "zh" },
   { code: "zh-TW", flag: "🇭🇰", label: "繁體中文", match: (lang) => lang.startsWith("zh") },
   { code: "ja-JP", flag: "🇯🇵", label: "日本語", match: (lang) => lang.startsWith("ja") },
@@ -74,6 +76,7 @@ const i18n = createI18n({
   messages: {
     "zh-CN": zhCN,
     "en-US": enUS,
+    "ar-EG": arEG, // 3. ربط كود ar-EG بالملف اللي رفعته
     "ja-JP": jaJP,
     "ko-KR": koKR,
     "es-ES": esES,
@@ -87,9 +90,13 @@ export const setI18nLocale = (locale: string) => {
   const resolved = resolveLocale(locale);
   (i18n.global.locale as unknown as { value: string }).value = resolved;
   document.documentElement.lang = resolved;
+  
+  // 4. إضافة دعم RTL (من اليمين لليسار) للغة العربية
+  document.documentElement.dir = resolved === "ar-EG" ? "rtl" : "ltr";
 };
 
-// 初始化时同步 html lang
+// 初始化时同步 html lang 和 dir
 document.documentElement.lang = defaultLocale;
+document.documentElement.dir = defaultLocale === "ar-EG" ? "rtl" : "ltr"; // تطبيق الاتجاه عند فتح البرنامج
 
 export default i18n;
