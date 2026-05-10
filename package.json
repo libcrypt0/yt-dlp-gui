@@ -83,5 +83,11 @@
     "vite": "^6.0.3",
     "vue-router": "^5.0.3",
     "vue-tsc": "^2.1.10"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@parcel/watcher",
+      "esbuild"
+    ]
   }
 }
