@@ -229,6 +229,8 @@
     "selectDir": "ダウンロード先を選択"
   },
   "toolbox": {
+    "browserExtTitle": "ブラウザ拡張機能",
+    "browserExtDesc": "ブラウザから動画 URL と Cookie をワンクリックでアプリへ送信",
     "thumbnailTitle": "サムネイルをダウンロード",
     "thumbnailDesc": "動画のサムネイル画像を取得してJPGで保存",
     "subtitlesTitle": "字幕をダウンロード",
@@ -297,6 +299,25 @@
     "installSuccess": "プラグインのインストールが完了しました",
     "uninstallSuccess": "プラグインをアンインストールしました",
     "cookieUnlockDesc": "Chromium系ブラウザのCookieデータベースをアンロックし、ブラウザを閉じずにCookieを読み取れます"
+  },
+  "browserExt": {
+    "title": "ブラウザ拡張機能",
+    "tagBeta": "ベータ",
+    "intro": "Chromium 系ブラウザ（Chrome / Edge / Brave / Vivaldi など）に YDL GUI Helper 拡張機能をインストールすると、現在のページの URL と必要な Cookie をワンクリックで本アプリに送信できます。ログインが必要な動画やメンバー限定動画に特に便利です。",
+    "installHeading": "インストール",
+    "install1": "下の「ソースフォルダを開く」をクリックしてリポジトリ内の browser-extension/ フォルダを確認し、リポジトリ全体をダウンロードまたはクローンします。",
+    "install2": "chrome://extensions（または edge://extensions）を開き、右上の「デベロッパーモード」をオンにします。",
+    "install3": "「パッケージ化されていない拡張機能を読み込む」をクリックし、browser-extension/ フォルダを選択します。",
+    "install4": "YDL GUI Helper アイコンをアドレスバー横にピン留めしておくと便利です。",
+    "usageHeading": "使い方",
+    "usage1": "ブラウザでサポート対象の動画ページを開きます。",
+    "usage2": "YDL GUI アイコンをクリック、またはページや動画リンクを右クリックして「YDL GUI に送信」を選択します。",
+    "usage3": "本アプリが自動的に前面に表示され、ホーム画面に URL と Cookie が入力済みになります。",
+    "privacyHeading": "プライバシー",
+    "privacyNote": "Cookie はローカルでのみ処理されます — ローカルプロトコル (ytdlp-gui://) を介して本アプリに直接渡され、外部サーバーには一切送信されません。",
+    "supportedHeading": "対応サイト",
+    "openSource": "ソースフォルダを開く",
+    "openReleases": "リリースページ"
   },
   "errors": {
     "unsupportedUrl": "このサイトは現在サポートされていません。URLをご確認ください",

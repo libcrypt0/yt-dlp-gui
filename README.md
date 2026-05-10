@@ -44,6 +44,8 @@ yt-dlp is powerful, but its command-line interface can be intimidating. **yt-dlp
 - **Thumbnail Downloader** — browse and save all available cover images in any resolution
 - **Subtitle Extractor** — download subtitles in SRT / VTT / ASS / LRC, with bilingual merge support
 - **Live Chat Archiver** — extract YouTube live chat replay, filter with regex, export as JSON / CSV
+- **Plugin Manager** — install yt-dlp plugins (e.g. ChromeCookieUnlock) with one click
+- **Browser Extension** — companion Chrome / Edge extension that sends the page URL and required cookies to the app with one click ([details](#browser-extension))
 
 ### Advanced
 
@@ -94,6 +96,33 @@ Grab the latest release for your platform from [**Releases**](https://github.com
 
 > [!TIP]
 > If you encounter login-required videos, configure Cookie in settings using Netscape format text or a cookie file.
+
+## Browser Extension
+
+A companion **YDL GUI Helper** browser extension lives in [`browser-extension/`](./browser-extension/). It sends the current tab's URL and required cookies straight to the desktop app via a local protocol handler (`ytdlp-gui://`) — no copy-paste, no extra cookie export.
+
+### Highlights
+
+- One-click send from the popup, or right-click context menu (`Send page to YDL GUI` / `Download link with YDL GUI` / `Send selected URL to YDL GUI`)
+- Action badge lights up automatically on supported video sites
+- Auto light / dark theme that follows your system
+- Cookies are processed locally — passed straight to the app via the local protocol, never uploaded anywhere
+
+### Install (Chrome / Edge / Brave / Vivaldi etc.)
+
+1. Download or clone this repository.
+2. Open `chrome://extensions` (or `edge://extensions`) and turn on **Developer mode** in the top-right.
+3. Click **Load unpacked** and select the `browser-extension/` folder.
+4. Pin the YDL GUI Helper icon next to the address bar.
+
+### Use
+
+1. Open a supported video page (YouTube, Bilibili, Twitch, Vimeo, Twitter/X, TikTok, Instagram, Facebook, Reddit, SoundCloud, etc.).
+2. Click the YDL GUI icon, or right-click the page / a video link and choose **Send to YDL GUI**.
+3. The desktop app comes to the front automatically with the URL and cookies pre-filled.
+
+> [!NOTE]
+> Make sure the YDL GUI desktop app is installed and running for the protocol handler to fire.
 
 ## Tech Stack
 

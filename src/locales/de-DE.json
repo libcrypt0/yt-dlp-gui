@@ -229,6 +229,8 @@
     "selectDir": "Download-Ordner auswählen"
   },
   "toolbox": {
+    "browserExtTitle": "Browser-Erweiterung",
+    "browserExtDesc": "Video-URL & Cookies aus dem Browser per Klick an die App senden",
     "thumbnailTitle": "Vorschaubild herunterladen",
     "thumbnailDesc": "Video-Vorschaubilder extrahieren und als JPG speichern",
     "subtitlesTitle": "Untertitel herunterladen",
@@ -297,6 +299,25 @@
     "installSuccess": "Plugin erfolgreich installiert",
     "uninstallSuccess": "Plugin deinstalliert",
     "cookieUnlockDesc": "Entsperrt die Cookie-Datenbank von Chromium-Browsern, sodass Cookies ohne Schließen des Browsers gelesen werden können"
+  },
+  "browserExt": {
+    "title": "Browser-Erweiterung",
+    "tagBeta": "Beta",
+    "intro": "Installiere die YDL GUI Helper-Erweiterung in einem Chromium-basierten Browser (Chrome / Edge / Brave / Vivaldi usw.), um die URL der aktuellen Seite und benötigte Cookies mit einem Klick an diese App zu senden — besonders nützlich für Videos, die einen Login erfordern oder nur Mitgliedern vorbehalten sind.",
+    "installHeading": "Installation",
+    "install1": "Klicke unten auf „Quellverzeichnis öffnen“, um den Ordner browser-extension/ im Projekt-Repo anzusehen, und lade das gesamte Repo herunter oder klone es.",
+    "install2": "Öffne chrome://extensions (oder edge://extensions) und aktiviere oben rechts den „Entwicklermodus“.",
+    "install3": "Klicke auf „Entpackte Erweiterung laden“ und wähle den Ordner browser-extension/ aus.",
+    "install4": "Befestige das YDL GUI Helper-Icon neben der Adressleiste für schnellen Zugriff.",
+    "usageHeading": "Nutzung",
+    "usage1": "Öffne eine unterstützte Videoseite im Browser.",
+    "usage2": "Klicke auf das YDL GUI-Icon oder rechtsklicke auf die Seite bzw. einen Videolink und wähle „An YDL GUI senden“.",
+    "usage3": "Diese App wird automatisch in den Vordergrund gebracht; URL und Cookies sind auf der Startseite bereits ausgefüllt.",
+    "privacyHeading": "Datenschutz",
+    "privacyNote": "Cookies werden ausschließlich lokal verarbeitet — sie werden über ein lokales Protokoll (ytdlp-gui://) direkt an diese App übergeben und an keinen Server hochgeladen.",
+    "supportedHeading": "Unterstützte Seiten",
+    "openSource": "Quellverzeichnis öffnen",
+    "openReleases": "Release-Seite"
   },
   "errors": {
     "unsupportedUrl": "Diese Plattform wird nicht unterstützt. Bitte URL prüfen",

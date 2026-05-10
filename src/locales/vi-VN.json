@@ -229,6 +229,8 @@
     "selectDir": "Chọn thư mục tải xuống"
   },
   "toolbox": {
+    "browserExtTitle": "Tiện ích trình duyệt",
+    "browserExtDesc": "Gửi URL video và cookie từ trình duyệt sang ứng dụng chỉ với một nhấp chuột",
     "thumbnailTitle": "Tải hình thu nhỏ",
     "thumbnailDesc": "Trích xuất hình thu nhỏ video và lưu thành JPG",
     "subtitlesTitle": "Tải phụ đề",
@@ -297,6 +299,25 @@
     "installSuccess": "Đã cài plugin thành công",
     "uninstallSuccess": "Đã gỡ plugin",
     "cookieUnlockDesc": "Mở khóa cơ sở dữ liệu cookie của trình duyệt Chromium, cho phép truy cập mà không cần đóng trình duyệt"
+  },
+  "browserExt": {
+    "title": "Tiện ích trình duyệt",
+    "tagBeta": "Beta",
+    "intro": "Cài đặt tiện ích YDL GUI Helper trên trình duyệt nhân Chromium (Chrome / Edge / Brave / Vivaldi…) để gửi URL trang hiện tại và cookie cần thiết tới ứng dụng này chỉ bằng một cú nhấp — đặc biệt hữu ích cho video yêu cầu đăng nhập hoặc dành cho thành viên.",
+    "installHeading": "Cài đặt",
+    "install1": "Nhấp vào \"Mở thư mục mã nguồn\" bên dưới để xem thư mục browser-extension/ trong kho dự án, sau đó tải về hoặc clone toàn bộ kho.",
+    "install2": "Mở chrome://extensions (hoặc edge://extensions) và bật \"Chế độ nhà phát triển\" ở góc trên bên phải.",
+    "install3": "Nhấp \"Tải tiện ích đã giải nén\" rồi chọn thư mục browser-extension/.",
+    "install4": "Ghim biểu tượng YDL GUI Helper cạnh thanh địa chỉ để truy cập nhanh.",
+    "usageHeading": "Sử dụng",
+    "usage1": "Mở một trang video được hỗ trợ trong trình duyệt.",
+    "usage2": "Nhấp vào biểu tượng YDL GUI, hoặc nhấp chuột phải vào trang / liên kết video và chọn \"Gửi sang YDL GUI\".",
+    "usage3": "Ứng dụng sẽ tự động hiện lên với URL và cookie đã được điền sẵn trên trang chủ.",
+    "privacyHeading": "Quyền riêng tư",
+    "privacyNote": "Cookie chỉ được xử lý cục bộ — được chuyển trực tiếp sang ứng dụng thông qua giao thức cục bộ (ytdlp-gui://) và không tải lên bất kỳ máy chủ nào.",
+    "supportedHeading": "Trang hỗ trợ",
+    "openSource": "Mở thư mục mã nguồn",
+    "openReleases": "Trang phát hành"
   },
   "errors": {
     "unsupportedUrl": "Nền tảng này không được hỗ trợ. Vui lòng kiểm tra URL",

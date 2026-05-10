@@ -229,6 +229,8 @@
     "selectDir": "Selecionar pasta de download"
   },
   "toolbox": {
+    "browserExtTitle": "Extensão do navegador",
+    "browserExtDesc": "Envie URLs de vídeo e cookies do navegador para o app com um clique",
     "thumbnailTitle": "Baixar miniatura",
     "thumbnailDesc": "Extrair miniaturas de vídeo e salvar como JPG",
     "subtitlesTitle": "Baixar legendas",
@@ -297,6 +299,25 @@
     "installSuccess": "Plugin instalado com sucesso",
     "uninstallSuccess": "Plugin desinstalado",
     "cookieUnlockDesc": "Desbloqueia o banco de cookies de navegadores Chromium, permitindo o acesso sem fechar o navegador"
+  },
+  "browserExt": {
+    "title": "Extensão do navegador",
+    "tagBeta": "Beta",
+    "intro": "Instale a extensão YDL GUI Helper em navegadores baseados em Chromium (Chrome / Edge / Brave / Vivaldi etc.) para enviar a URL da página atual e os cookies necessários a este aplicativo com um clique — especialmente útil para vídeos que exigem login ou são restritos a membros.",
+    "installHeading": "Instalação",
+    "install1": "Clique em \"Abrir pasta do código-fonte\" abaixo para ver a pasta browser-extension/ no repositório e baixe ou clone o repositório inteiro.",
+    "install2": "Abra chrome://extensions (ou edge://extensions) e ative o \"Modo do desenvolvedor\" no canto superior direito.",
+    "install3": "Clique em \"Carregar sem compactação\" e selecione a pasta browser-extension/.",
+    "install4": "Fixe o ícone do YDL GUI Helper ao lado da barra de endereços para acesso rápido.",
+    "usageHeading": "Como usar",
+    "usage1": "Abra uma página de vídeo suportada no navegador.",
+    "usage2": "Clique no ícone do YDL GUI ou clique com o botão direito na página / em um link e escolha \"Enviar para o YDL GUI\".",
+    "usage3": "O app aparecerá automaticamente em primeiro plano com a URL e os cookies já preenchidos na página inicial.",
+    "privacyHeading": "Privacidade",
+    "privacyNote": "Os cookies são processados apenas localmente — são entregues diretamente a este aplicativo via um protocolo local (ytdlp-gui://) e não são enviados a nenhum servidor.",
+    "supportedHeading": "Sites suportados",
+    "openSource": "Abrir pasta do código-fonte",
+    "openReleases": "Página de releases"
   },
   "errors": {
     "unsupportedUrl": "Esta plataforma não é suportada. Verifique a URL",

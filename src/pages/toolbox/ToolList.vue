@@ -4,6 +4,7 @@ import IconMdiImageOutline from "~icons/mdi/image-outline";
 import IconMdiSubtitlesOutline from "~icons/mdi/subtitles-outline";
 import IconMdiMessageTextOutline from "~icons/mdi/message-text-outline";
 import IconMdiPuzzleOutline from "~icons/mdi/puzzle-outline";
+import IconMdiExtension from "~icons/mdi/extension";
 import { useI18n } from "vue-i18n";
 
 useI18n();
@@ -52,6 +53,15 @@ const tools: ToolItem[] = [
     bg: "rgba(139,92,246,0.1)",
     titleKey: "plugins.title",
     descKey: "plugins.desc",
+  },
+  {
+    key: "browser-extension",
+    icon: IconMdiExtension,
+    color: "#ff0033",
+    bg: "rgba(255,0,51,0.1)",
+    titleKey: "toolbox.browserExtTitle",
+    descKey: "toolbox.browserExtDesc",
+    tagKey: "browserExt.tagBeta",
   },
 ];
 

@@ -4,8 +4,13 @@ import { isValidUrl } from "@/utils/validate";
 import { useI18n } from "vue-i18n";
 
 const { t } = useI18n();
+const route = useRoute();
 const toolUrl = ref("");
 provide("toolUrl", toolUrl);
+
+// 文档型工具页（如浏览器扩展说明）不需要 URL 输入。
+const ROUTES_WITHOUT_URL_INPUT = new Set(["toolbox-browser-extension"]);
+const showUrlInput = computed(() => !ROUTES_WITHOUT_URL_INPUT.has(route.name as string));
 
 const handlePaste = async () => {
   try {
@@ -29,7 +34,7 @@ const handlePaste = async () => {
 
 <template>
   <n-flex vertical :size="16" class="toolbox-page">
-    <n-flex :size="8">
+    <n-flex v-if="showUrlInput" :size="8">
       <n-input
         v-model:value="toolUrl"
         :placeholder="$t('home.inputPlaceholder')"

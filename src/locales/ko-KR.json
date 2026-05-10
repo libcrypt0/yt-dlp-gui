@@ -229,6 +229,8 @@
     "selectDir": "다운로드 경로 선택"
   },
   "toolbox": {
+    "browserExtTitle": "브라우저 확장 프로그램",
+    "browserExtDesc": "브라우저에서 영상 URL과 쿠키를 한 번에 앱으로 전송",
     "thumbnailTitle": "썸네일 다운로드",
     "thumbnailDesc": "동영상 썸네일을 추출하여 JPG로 저장",
     "subtitlesTitle": "자막 다운로드",
@@ -297,6 +299,25 @@
     "installSuccess": "플러그인이 설치되었습니다",
     "uninstallSuccess": "플러그인이 제거되었습니다",
     "cookieUnlockDesc": "Chromium 계열 브라우저의 쿠키 데이터베이스를 잠금 해제하여 브라우저를 닫지 않고도 쿠키를 읽을 수 있습니다"
+  },
+  "browserExt": {
+    "title": "브라우저 확장 프로그램",
+    "tagBeta": "베타",
+    "intro": "Chromium 기반 브라우저(Chrome / Edge / Brave / Vivaldi 등)에 YDL GUI Helper 확장 프로그램을 설치하면 현재 페이지의 URL과 필요한 쿠키를 클릭 한 번으로 이 앱에 보낼 수 있습니다. 로그인이 필요한 영상이나 멤버 전용 영상에 특히 유용합니다.",
+    "installHeading": "설치",
+    "install1": "아래의 \"소스 폴더 열기\"를 클릭해 저장소의 browser-extension/ 폴더를 확인한 뒤 저장소 전체를 다운로드하거나 복제합니다.",
+    "install2": "chrome://extensions(또는 edge://extensions)를 열고 오른쪽 위에서 \"개발자 모드\"를 켭니다.",
+    "install3": "\"압축해제된 확장 프로그램을 로드합니다\"를 클릭한 뒤 browser-extension/ 폴더를 선택합니다.",
+    "install4": "YDL GUI Helper 아이콘을 주소 표시줄 옆에 고정해 두면 편리합니다.",
+    "usageHeading": "사용",
+    "usage1": "브라우저에서 지원되는 영상 페이지를 엽니다.",
+    "usage2": "YDL GUI 아이콘을 클릭하거나 페이지/영상 링크를 우클릭하고 \"YDL GUI로 보내기\"를 선택합니다.",
+    "usage3": "이 앱이 자동으로 앞으로 나오며 홈 화면에 URL과 쿠키가 미리 채워집니다.",
+    "privacyHeading": "개인정보",
+    "privacyNote": "쿠키는 로컬에서만 처리됩니다 — 로컬 프로토콜(ytdlp-gui://)을 통해 이 앱으로 바로 전달되며 어떤 서버에도 업로드되지 않습니다.",
+    "supportedHeading": "지원 사이트",
+    "openSource": "소스 폴더 열기",
+    "openReleases": "릴리스 페이지"
   },
   "errors": {
     "unsupportedUrl": "지원하지 않는 사이트입니다. URL을 확인해 주세요",
