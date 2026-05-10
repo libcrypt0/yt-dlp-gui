@@ -46,7 +46,9 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: latest
+          # 钉到 v10：v11 把 onlyBuiltDependencies 校验改到 lockfile 层，
+          # 单独配置 package.json 不再生效，会导致 ERR_PNPM_IGNORED_BUILDS。
+          version: 10
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
