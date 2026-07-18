@@ -197,20 +197,23 @@ const refreshAll = () => {
   checkDenoStatus();
 };
 
+// 注：应用启动时的初始同步在 App.vue 中统一处理（保证不打开设置页也生效），
+// 这里的 apply* 调用只负责用户在本页修改设置时的实时同步。
 onMounted(async () => {
   platform.value = await invoke<string>("get_platform");
   appVersion.value = await getVersion();
-  await applyBinaryPathResolveMode();
-  await applyYoutubeExtractorArgs();
-  await applyFfmpegDir();
   refreshAll();
 });
 
 watch(
   () => settingStore.binaryPathResolveMode,
   async () => {
-    await applyBinaryPathResolveMode();
-    refreshAll();
+    try {
+      await applyBinaryPathResolveMode();
+      refreshAll();
+    } catch (e: unknown) {
+      window.$message.error(t("common.saveFailed", { e }));
+    }
   },
 );
 
@@ -218,7 +221,11 @@ watch(
 watch(
   () => [settingStore.youtubePoToken, settingStore.youtubeVisitorData],
   async () => {
-    await applyYoutubeExtractorArgs();
+    try {
+      await applyYoutubeExtractorArgs();
+    } catch (e: unknown) {
+      window.$message.error(t("common.saveFailed", { e }));
+    }
   },
 );
 
@@ -226,7 +233,11 @@ watch(
 watch(
   () => settingStore.ffmpegDir,
   async () => {
-    await applyFfmpegDir();
+    try {
+      await applyFfmpegDir();
+    } catch (e: unknown) {
+      window.$message.error(t("common.saveFailed", { e }));
+    }
   },
 );
 </script>

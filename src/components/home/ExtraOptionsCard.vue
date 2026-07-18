@@ -136,18 +136,21 @@ watch(endTime, (val) => {
   }
 });
 
-// 记住额外选项的选择，作为下次新任务的默认值（时间裁剪范围为单次任务专属，不记忆）
-watch(embedSubs, (v) => (settingStore.embedSubs = v));
-watch(embedThumbnail, (v) => (settingStore.embedThumbnail = v));
-watch(embedMetadata, (v) => (settingStore.embedMetadata = v));
-watch(embedChapters, (v) => (settingStore.embedChapters = v));
-watch(sponsorblockRemove, (v) => (settingStore.sponsorblockRemove = v));
-watch(extractAudio, (v) => (settingStore.extractAudio = v));
-watch(audioConvertFormat, (v) => (settingStore.audioConvertFormat = v));
-watch(noMerge, (v) => (settingStore.noMerge = v));
-watch(recodeFormat, (v) => (settingStore.recodeFormat = v));
-watch(limitRate, (v) => (settingStore.limitRate = v));
-watch(ffmpegArgs, (v) => (settingStore.ffmpegArgs = v));
+// 记住额外选项的选择，作为下次新任务的默认值（时间裁剪范围为单次任务专属，不记忆）。
+// 必须绑定到用户主动交互的事件（@update:checked / @update:value），而非 watch 模型值——
+// 切换 pending 标签页时模型值也会随之变化，若用 watch 会把「查看其他任务」误当成「用户修改」，
+// 从而用那个任务本身的值覆盖全局默认值。
+const rememberEmbedSubs = (v: boolean) => (settingStore.embedSubs = v);
+const rememberEmbedThumbnail = (v: boolean) => (settingStore.embedThumbnail = v);
+const rememberEmbedMetadata = (v: boolean) => (settingStore.embedMetadata = v);
+const rememberEmbedChapters = (v: boolean) => (settingStore.embedChapters = v);
+const rememberSponsorblockRemove = (v: boolean) => (settingStore.sponsorblockRemove = v);
+const rememberExtractAudio = (v: boolean) => (settingStore.extractAudio = v);
+const rememberAudioConvertFormat = (v: string) => (settingStore.audioConvertFormat = v);
+const rememberNoMerge = (v: boolean) => (settingStore.noMerge = v);
+const rememberRecodeFormat = (v: string) => (settingStore.recodeFormat = v);
+const rememberLimitRate = (v: string) => (settingStore.limitRate = v);
+const rememberFfmpegArgs = (v: string) => (settingStore.ffmpegArgs = v);
 </script>
 
 <template>
@@ -230,6 +233,7 @@ watch(ffmpegArgs, (v) => (settingStore.ffmpegArgs = v));
             :options="recodeOptions"
             size="small"
             style="width: 110px"
+            @update:value="rememberRecodeFormat"
           />
         </n-flex>
         <n-flex align="center" :size="8">
@@ -239,6 +243,7 @@ watch(ffmpegArgs, (v) => (settingStore.ffmpegArgs = v));
             :options="limitRateOptions"
             size="small"
             style="width: 110px"
+            @update:value="rememberLimitRate"
           />
         </n-flex>
       </n-flex>
@@ -251,11 +256,12 @@ watch(ffmpegArgs, (v) => (settingStore.ffmpegArgs = v));
           size="small"
           clearable
           style="flex: 1"
+          @update:value="rememberFfmpegArgs"
         />
       </n-flex>
 
       <n-flex align="center" :size="8">
-        <n-checkbox v-model:checked="extractAudio" size="small">
+        <n-checkbox v-model:checked="extractAudio" size="small" @update:checked="rememberExtractAudio">
           {{ $t("detail.extractAudio") }}
         </n-checkbox>
         <n-select
@@ -265,28 +271,45 @@ watch(ffmpegArgs, (v) => (settingStore.ffmpegArgs = v));
           size="small"
           style="width: 110px"
           :placeholder="$t('detail.audioFormat')"
+          @update:value="rememberAudioConvertFormat"
         />
       </n-flex>
 
       <n-divider style="margin: 0" />
 
       <n-flex :size="[16, 8]" wrap>
-        <n-checkbox v-model:checked="embedSubs" size="small">
+        <n-checkbox v-model:checked="embedSubs" size="small" @update:checked="rememberEmbedSubs">
           {{ $t("detail.embedSubs") }}
         </n-checkbox>
-        <n-checkbox v-model:checked="embedThumbnail" size="small">
+        <n-checkbox
+          v-model:checked="embedThumbnail"
+          size="small"
+          @update:checked="rememberEmbedThumbnail"
+        >
           {{ $t("detail.embedThumbnail") }}
         </n-checkbox>
-        <n-checkbox v-model:checked="embedMetadata" size="small">
+        <n-checkbox
+          v-model:checked="embedMetadata"
+          size="small"
+          @update:checked="rememberEmbedMetadata"
+        >
           {{ $t("detail.embedMetadata") }}
         </n-checkbox>
-        <n-checkbox v-model:checked="embedChapters" size="small">
+        <n-checkbox
+          v-model:checked="embedChapters"
+          size="small"
+          @update:checked="rememberEmbedChapters"
+        >
           {{ $t("detail.embedChapters") }}
         </n-checkbox>
-        <n-checkbox v-model:checked="sponsorblockRemove" size="small">
+        <n-checkbox
+          v-model:checked="sponsorblockRemove"
+          size="small"
+          @update:checked="rememberSponsorblockRemove"
+        >
           {{ $t("detail.skipSponsor") }}
         </n-checkbox>
-        <n-checkbox v-model:checked="noMerge" size="small">
+        <n-checkbox v-model:checked="noMerge" size="small" @update:checked="rememberNoMerge">
           {{ $t("detail.noMerge") }}
         </n-checkbox>
       </n-flex>
