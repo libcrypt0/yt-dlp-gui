@@ -135,6 +135,19 @@ watch(endTime, (val) => {
     window.$message.warning(t("detail.endTimeAdjusted"));
   }
 });
+
+// 记住额外选项的选择，作为下次新任务的默认值（时间裁剪范围为单次任务专属，不记忆）
+watch(embedSubs, (v) => (settingStore.embedSubs = v));
+watch(embedThumbnail, (v) => (settingStore.embedThumbnail = v));
+watch(embedMetadata, (v) => (settingStore.embedMetadata = v));
+watch(embedChapters, (v) => (settingStore.embedChapters = v));
+watch(sponsorblockRemove, (v) => (settingStore.sponsorblockRemove = v));
+watch(extractAudio, (v) => (settingStore.extractAudio = v));
+watch(audioConvertFormat, (v) => (settingStore.audioConvertFormat = v));
+watch(noMerge, (v) => (settingStore.noMerge = v));
+watch(recodeFormat, (v) => (settingStore.recodeFormat = v));
+watch(limitRate, (v) => (settingStore.limitRate = v));
+watch(ffmpegArgs, (v) => (settingStore.ffmpegArgs = v));
 </script>
 
 <template>

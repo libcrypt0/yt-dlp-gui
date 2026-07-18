@@ -73,6 +73,10 @@ const applyYoutubeExtractorArgs = async () => {
   });
 };
 
+const applyFfmpegDir = async () => {
+  await invoke("set_ffmpeg_dir", { dir: settingStore.ffmpegDir });
+};
+
 const ytdlpStatus = ref<YtdlpStatus | null>(null);
 const ytdlpChecking = ref(true);
 const ytdlpDownloading = ref(false);
@@ -198,6 +202,7 @@ onMounted(async () => {
   appVersion.value = await getVersion();
   await applyBinaryPathResolveMode();
   await applyYoutubeExtractorArgs();
+  await applyFfmpegDir();
   refreshAll();
 });
 
@@ -214,6 +219,14 @@ watch(
   () => [settingStore.youtubePoToken, settingStore.youtubeVisitorData],
   async () => {
     await applyYoutubeExtractorArgs();
+  },
+);
+
+// FFmpeg 目录变更时同步到后端
+watch(
+  () => settingStore.ffmpegDir,
+  async () => {
+    await applyFfmpegDir();
   },
 );
 </script>
@@ -456,6 +469,8 @@ watch(
 
     <DownloadDirCard class="section-card" />
 
+    <FfmpegDirCard class="section-card" />
+
     <n-card :title="$t('settings.downloadOptions')" size="small" class="section-card">
       <n-flex vertical :size="12">
         <div class="info-list">
@@ -507,6 +522,12 @@ watch(
           <div class="info-row">
             <span class="info-label">{{ $t("settings.noOverwrites") }}</span>
             <n-switch v-model:value="settingStore.noOverwrites" />
+          </div>
+        </div>
+        <div class="info-list">
+          <div class="info-row">
+            <span class="info-label">{{ $t("settings.confirmClearCompleted") }}</span>
+            <n-switch v-model:value="settingStore.confirmClearCompleted" />
           </div>
         </div>
       </n-flex>
